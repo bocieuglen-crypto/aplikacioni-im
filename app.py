@@ -14,7 +14,7 @@ st.markdown("""
 
 # Lidhja me Gemini
 genai.configure(api_key="AIzaSyAaC3E9yvo_i8hP5EKi-naocH8DpwOqOPE")
-model = genai.GenerativeModel("models/gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-1.5-flash-latest")
 
 # --- MEMORJA (Session State) ---
 if "messages" not in st.session_state:
@@ -53,3 +53,4 @@ if st.sidebar.button("Fshij Bisedën"):
     st.session_state.messages = []
 
     st.rerun()
+
