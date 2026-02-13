@@ -2,7 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 
 # Zëvendëso AIza... me kodin e ri që krijove te Google AI Studio
-genai.configure(api_key="AIzaSyA...") 
+genai.configure(api_key="AIzaSyBb0Y8-kI7cMYuMmbGNW88BhUH3-DvyC6I") 
 
 st.title("AI Chatbot Im - Live")
 
@@ -27,3 +27,4 @@ if prompt := st.chat_input("Shkruaj diçka..."):
         st.session_state.messages.append({"role": "assistant", "content": response.text})
     except Exception as e:
         st.error(f"Gabim: {e}")
+
