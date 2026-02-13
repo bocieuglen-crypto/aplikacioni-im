@@ -1,12 +1,22 @@
 import streamlit as st
 import google.generativeai as genai
 
-# Zëvendëso AIza... me kodin e ri që krijove te Google AI Studio
-genai.configure(api_key="AIzaSyBb0Y8-kI7cMYuMmbGNW88BhUH3-DvyC6I") 
+# Konfigurimi i API Key
+genai.configure(api_key="AIzaSy...") # Sigurohu që ky është Key i ri
 
 st.title("AI Chatbot Im - Live")
 
-model = genai.GenerativeModel('gemini-1.5-flash')
+# KJO ESHTE PJESA KRITIKE:
+# Listojmë modelet e disponueshme për të parë cilin pranon ky Key
+try:
+    available_models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
+    # Zgjedhim modelin e parë që punon (zakonisht gemini-1.5-flash)
+    target_model = available_models[0] if available_models else "gemini-1.5-flash"
+    model = genai.GenerativeModel(target_model)
+except Exception as e:
+    st.error(f"Nuk u gjet asnjë model: {e}")
+    target_model = "gemini-1.5-flash"
+    model = genai.GenerativeModel(target_model)
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -26,5 +36,4 @@ if prompt := st.chat_input("Shkruaj diçka..."):
             st.write(response.text)
         st.session_state.messages.append({"role": "assistant", "content": response.text})
     except Exception as e:
-        st.error(f"Gabim: {e}")
-
+        st.error(f"Gabim teknik: {e}")
