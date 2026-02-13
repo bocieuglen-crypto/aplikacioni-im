@@ -33,3 +33,4 @@ if prompt := st.chat_input("Shkruaj diçka..."):
                 st.error("AI nuk ktheu përgjigje. Provo një pyetje tjetër.")
     except Exception as e:
         st.error(f"Gabim: {e}")
+
