@@ -1,5 +1,5 @@
 import streamlit as st
-import google.generativegenai as genai
+import google.generativgenai as genai
 
 # Konfigurimi
 client = genai.Client(api_key="AIzaSyAaC3E9yvo_i8hP5EKi-naocH8DpwOqOPE")
@@ -33,5 +33,6 @@ if prompt := st.chat_input("Shkruaj diçka..."):
                 st.error("AI nuk ktheu përgjigje. Provo një pyetje tjetër.")
     except Exception as e:
         st.error(f"Gabim: {e}")
+
 
 
