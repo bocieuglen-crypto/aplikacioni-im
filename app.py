@@ -1,4 +1,4 @@
-import streamlit as st
+streamlit as st
 from google import genai
 
 # Konfigurimi
@@ -33,5 +33,4 @@ if prompt := st.chat_input("Shkruaj diçka..."):
                 st.error("AI nuk ktheu përgjigje. Provo një pyetje tjetër.")
     except Exception as e:
         st.error(f"Gabim: {e}")
-
 
