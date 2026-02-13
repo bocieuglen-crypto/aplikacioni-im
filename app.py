@@ -34,3 +34,4 @@ if prompt := st.chat_input("Shkruaj diçka..."):
     except Exception as e:
         st.error(f"Gabim: {e}")
 
+
